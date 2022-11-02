@@ -206,7 +206,7 @@ const getYesterday = async (browser) => {
         day = `0${day}`
     }
     let date = `${year}${month}${day}`
-    console.log(date)
+    // console.log(date)
     await page.goto(`https://www.espn.com/nhl/scoreboard/_/date/${date}`)
 
     let games = []
