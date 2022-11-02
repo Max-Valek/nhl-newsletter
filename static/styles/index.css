@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Comfortaa', sans-serif;
+}
+.topnav {
+    height: 10%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.topnav-left {
+    align-items: center;
+    justify-content: space-between;
+}
+.topnav-left {
+    align-items: center;
+    justify-content: space-between;
+}

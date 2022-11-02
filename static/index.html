@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/18ef9a757d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/index.css">
+    <title>NHL Newsletter</title>
+</head>
+<body>
+    <div class="topnav">
+        <div class="topnav-left">
+            <span>NHL Newsletter</span>
+            <i class="fa-solid fa-hockey-puck"></i>
+        </div>
+        <div class="topnav-right">
+            <span>Home</span>
+            <span>About</span>
+            <span>Data</span>
+        </div>
+    </div>
+    <h1>Daily NHL Newsletter</h1>
+
+    <h4>Get today's newsletter! (will not subscribe you)</h4>
+    <form action="/send_email" method="post">
+        <label for="to">Your Email:</label>
+        <input type="email" name="to" id="to"><br><br>
+        <input type="submit" value="Send Newsletter">
+    </form>
+
+    <form action="/subscribe" method="post">
+        <label for="address">Your Email:</label>
+        <input type="email" name="address" id="address"><br><br>
+        <input type="submit" value="Subscribe">
+    </form>
+
+    <form action="/unsubscribe" method="post">
+        <label for="address">Your Email:</label>
+        <input type="email" name="address" id="address"><br><br>
+        <input type="submit" value="Unubscribe">
+    </form>
+    
+</body>
+</html>

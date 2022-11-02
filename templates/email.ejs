@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<head>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comfortaa', sans-serif;
+    }
+    .body-wrapper{
+      width: 100%;
+    }
+    .header-table {
+      width: 100%;
+      border: 1px solid rgb(230,230,230);
+      border-radius: 15px;
+    }
+    .greeting {
+      text-align: center;
+      font-size: large;
+      font-weight: bold;
+      padding-left: 25px;
+      padding-right: 25px;
+    }
+    .espn-logo {
+      width: 35px;
+      vertical-align: middle;
+    }
+    .nhl-logo {
+      width: 22px;
+      vertical-align: middle;
+    }
+    .dk-logo {
+      width: 30px;
+    }
+    .powered-by {
+      text-align: center;
+      font-size: x-small;
+    }
+    .article-table {
+      width: 100%;
+      height: 100%;
+      border: 1px solid rgb(230,230,230);
+      border-radius: 15px;
+    }
+    .article-image {
+      width: 100%;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+    .article-title {
+      text-align: center;
+      font-size: large;
+      font-weight: bold;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+    .article-summary {
+      text-align: center;
+      font-size: small;
+      padding-left: 5px;
+      padding-right: 5px;
+      margin-top: 0;
+    }
+    .article-bottom-row {
+      width: 100%;
+    }
+    .article-bottom-wrapper {
+      text-align: center;
+      padding-bottom: 10px;
+    }
+    .article-bottom-right {
+      width: 50%;
+      font-size: x-small;
+    }
+    .article-bottom-left {
+      width: 50%;
+      font-size: x-small;
+    }
+    .yesterday-scores-table {
+      width: 100%;
+      border: 1px solid rgb(230,230,230);
+      border-radius: 15px;
+    }
+    .yesterday-header {
+      text-align: center;
+      font-size: medium;
+      font-weight: 600;
+      padding: 10px;
+      margin-bottom: 15px;
+    }
+    .yesterday-scores-row {
+      width: 100%;
+      text-align: center;
+    }
+    .yesterday-score {
+      width: 15%;
+      font-size: x-large;
+      border-top: 1px solid rgb(230,230,230);
+    }
+    .yesterday-team {
+      width: 30%;
+      border-top: 1px solid rgb(230,230,230);
+    }
+    .yesterday-logo {
+      width: 35px;
+    }
+    .yesterday-record {
+      font-size: xx-small;
+    }
+    .yesterday-vs {
+      font-size: x-small;
+      width: 10%;
+      border-top: 1px solid rgb(230,230,230);
+    }
+    .fantasy-table {
+      width: 100%;
+      border: 1px solid rgb(230,230,230);
+      border-radius: 15px;
+    }
+    .fantasy-header {
+      text-align: center;
+      font-size: medium;
+      font-weight: 600;
+      padding: 10px;
+      margin-bottom: 15px;
+    }
+    .fantasy-score {
+      width: 15%;
+      text-align: center;
+      font-size: large;
+      border-top: 1px solid rgb(230,230,230);
+    }
+    .fantasy-img {
+      width: 25%;
+      border-top: 1px solid rgb(230,230,230);
+      text-align: center;
+    }
+    .fantasy-img img {
+      height: 40px;
+      background-color: rgb(230,230,230);
+      border-radius: 10px;
+    }
+    .fantasy-info {
+      width: 65%;
+      border-top: 1px solid rgb(230,230,230);
+    }
+    .fantasy-player {
+      font-size: small;
+    }
+    .fantasy-stats {
+      font-size: x-small;
+    }
+    .games-today-table {
+      width: 100%;
+      border: 1px solid rgb(230,230,230);
+      border-radius: 15px;
+    }
+    .games-today-header {
+      text-align: center;
+      font-size: medium;
+      font-weight: 600;
+      padding: 10px;
+      margin-bottom: 15px;
+    }
+    .today-team {
+      width: 32.5%;
+      text-align: center;
+      border-top: 1px solid rgb(230,230,230);
+      padding-top: 10px;
+    }
+    .today-logo {
+      width: 35px;
+    }
+    .today-record {
+      font-size: xx-small;
+    }
+    .today-vs {
+      width: 5%;
+      font-size: x-small;
+      border-top: 1px solid rgb(230,230,230);
+    }
+    .today-game-info {
+      width: 30%;
+      border-left: 1px solid black;
+      border-top: 1px solid rgb(230,230,230);
+    }
+    .today-time {
+      font-size: x-small;
+      margin-left: 15px;
+    }
+    .today-network {
+      font-size: x-small;
+      margin-left: 15px;
+    }
+    .standings-table {
+      width: 100%;
+      border: 1px solid rgb(230,230,230);
+      border-radius: 15px;
+    }
+    .standings-header {
+      font-size: medium;
+      font-weight: 600;
+      text-align: center;
+      padding: 10px;
+      border-bottom: 1px solid rgb(230,230,230);
+      margin-bottom: 15px;
+    }
+    .conference-header-row {
+      width: 100%;
+      height: 50px;
+    }
+    .conference-header {
+      text-align: center;
+    }
+    .east-logo {
+      height: 40px;
+    }
+    .west-logo {
+      height: 40px;
+    }
+    .division-table {
+      width: 100%;
+      table-layout: fixed;
+      border: 1px solid rgb(230,230,230);
+      border-radius: 15px;
+    }
+    .division-header {
+      width: 100%;
+      text-align: center;
+      margin-top: 7px;
+      margin-bottom: 12px;
+      font-size: small;
+      font-weight: bold;
+      background-color: rgb(230,230,230);
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      border-bottom: 1px solid rgb(230,230,230);
+    }
+    .table-labels {
+      width: 100%;
+      text-align: center;
+    }
+    .table-labels td {
+      padding-top: 2px;
+      padding-bottom: 2px;
+      font-size: x-small;
+      font-weight: bold;
+      
+    }
+    .standings-logo {
+      text-align: center;
+      width: 35%;
+      padding-top: 4px;
+      padding-bottom: 4px;
+      border-top: 1px solid rgb(230,230,230);
+    }
+    .standings-logo img {
+      width: 30px;
+    }
+    .standings-record {
+      text-align: center;
+      font-size: small;
+      width: 35%;
+      padding-top: 4px;
+      padding-bottom: 4px;
+      border-top: 1px solid rgb(230,230,230);
+    }
+    .standings-points {
+      text-align: center;
+      font-size: small;
+      width: 35%;
+      padding-top: 4px;
+      padding-bottom: 4px;
+      border-top: 1px solid rgb(230,230,230);
+    }
+
+  </style>
+</head>
+<body>
+  <table class="body-wrapper">
+    <tbody>
+      <tr class="header-wrapper">
+        <table class="header-table" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td>
+                <p class="greeting">Hey <%= receiver %>! Here's your <img class="nhl-logo" src="https://seeklogo.com/images/N/nhl-logo-D867931D9B-seeklogo.com.png" alt="NHL"> newsletter for <%= date %>.</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p class="powered-by">Powered by <img class="espn-logo" src="https://1000logos.net/wp-content/uploads/2021/05/ESPN-logo.png" alt="ESPN"> and <img class="dk-logo" src="https://cdn2.downdetector.com/static/uploads/c/300/38c49/DraftKings_logo.png" alt="Draft Kings"></p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </tr>
+      <tr class="article-wrapper">
+        <table class="article-table" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td>
+                <img class="article-image" src="<%= top_article[0].image %>" alt="">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p class="article-title"><%= top_article[0].title %></p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p class="article-summary"><%= top_article[0].summary %></p>
+              </td>
+            </tr>
+            <tr class="article-bottom-row">
+                <td class="article-bottom-wrapper">
+                  <span class="article-bottom-left"><%= top_article[0].timestamp %> ago - <%= top_article[0].author %> (ESPN) </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <span class="article-bottom-right"><a href="https://www.espn.com/nhl/"> More Articles on ESPN</a></span>
+                </td>
+            </tr>
+          </tbody>
+        </table>
+      </tr>
+
+      <tr class="yesterday-scores-wrapper">
+        <table class="yesterday-scores-table" cellspacing="0" cellpadding="0">
+          <th class="yesterday-header" colspan="5">Yesterday's Scores</th>
+          <tbody>
+            <% for (var i = 0; i < nhl_games_yesterday.length; i++) { %>
+              <tr class="yesterday-scores-row">
+                <td class="yesterday-score">
+                  <p><%= nhl_games_yesterday[i].team1_score %></p>
+                </td>
+                <td class="yesterday-team">
+                  <img class="yesterday-logo" src=<%= nhl_games_yesterday[i].team1_logo %> alt="logo">
+                  <p class="yesterday-record">(<%= nhl_games_yesterday[i].team1_record %>)</p>
+                </td>
+                <td class="yesterday-vs">
+                  <p>VS</p>
+                </td>
+                <td class="yesterday-score">
+                  <p><%= nhl_games_yesterday[i].team2_score %></p>
+                </td>
+                <td class="yesterday-team">
+                  <img class="yesterday-logo" src=<%= nhl_games_yesterday[i].team2_logo %> alt="logo">
+                  <p class="yesterday-record"> (<%= nhl_games_yesterday[i].team2_record %>)</p>
+                </td>
+              </tr>  
+            <% } %>
+          </tbody>
+        </table>
+      </tr>
+
+      <tr class="fantasy-wrapper">
+        <table class="fantasy-table" cellspacing="0" cellpadding="0">
+          <th class="fantasy-header" colspan="3">Yesterday's Fantasy Top 5</th>
+          <tbody>
+            <% for (var i = 0; i < fantasy_leaders.length; i++) { %>
+            <tr>
+              <td class="fantasy-score">
+                <p><%= fantasy_leaders[i].points %></p>
+               </td>
+              <td class="fantasy-img">
+                <img src=<%= fantasy_leaders[i].image %> alt="">
+              </td>
+              <td class="fantasy-info">
+                <p class="fantasy-player"><%= fantasy_leaders[i].player %> (<%= fantasy_leaders[i].team %> <%= fantasy_leaders[i].pos %>)</p>
+                <p class="fantasy-stats">[<%= fantasy_leaders[i].g %>G,
+                    <%= fantasy_leaders[i].a %>A,
+                    <%= fantasy_leaders[i].ppp %>PPP, 
+                    <%= fantasy_leaders[i].shp %>SHP, 
+                    <%= fantasy_leaders[i].shots %>SOG, 
+                    <%= fantasy_leaders[i].h %>HIT, 
+                    <%= fantasy_leaders[i].blk %>BLK]
+                </p>
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </tr>
+
+      <tr class="games-today-wrapper">
+        <table class="games-today-table" cellspacing="0" cellpadding="0">
+          <th class="games-today-header" colspan="4">Today's Schedule</th>
+          <tbody>
+            <% for (var i = 0; i < nhl_games_today.length; i++) { %>
+            <tr>
+              <td class="today-team">
+                <img class="today-logo" src=<%= nhl_games_today[i].team1_logo %> alt="logo">
+                <p class="today-record">(<%= nhl_games_today[i].team1_record %>) &nbsp;&nbsp;[<%= nhl_games_today[i].team1.ml %>]</p>
+              </td>
+              <td class="today-vs">
+                <p>VS</p>
+              </td>
+              <td class="today-team">
+                <img class="today-logo" src=<%= nhl_games_today[i].team2_logo %> alt="logo">
+                <p class="today-record">(<%= nhl_games_today[i].team2_record %>) &nbsp;&nbsp;[<%= nhl_games_today[i].team2.ml %>]</p>
+              </td>
+              <td class="today-game-info">
+                <p class="today-time"> <%= nhl_games_today[i].time %> </p>
+                <p class="today-network"> <%= nhl_games_today[i].network %> </p>
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </tr>
+
+      <tr class="standings-wrapper">
+        <table class="standings-table" cellspacing="7px" cellpadding="0">
+          <th class="standings-header" colspan="2">Standings</th>
+          <tbody>
+            <tr class="conference-header-row">
+              <td class="conference-header" colspan="2">
+                <img class="east-logo" src="https://seeklogo.com/images/N/nhl-eastern-conference-logo-D6A2537405-seeklogo.com.png" alt="East">
+              </td>
+            </tr>
+            <tr class="east-row">
+              <td>
+                <table class="division-table" cellspacing="0" cellpadding="0">
+                  <th class="division-header" colspan="3">Atlantic</th>
+                  <tbody>
+                    <tr class="table-labels">
+                      <td>Team</td>
+                      <td>Record</td>
+                      <td>PTS</td>
+                    </tr>
+                    <% for (var i = 0; i < atlantic.length; i++) { %>
+                    <tr class="standings-teams">
+                      <td class="standings-logo">
+                        <img src="<%= atlantic[i].logo %>" alt="<%= atlantic[i].team %>">
+                      </td>
+                      <td class="standings-record">(<%= atlantic[i].w %>-<%= atlantic[i].l %>-<%= atlantic[i].otl %>)</td>
+                      <td class="standings-points"><%= atlantic[i].pts %></td>
+                    </tr>
+                    <% } %>
+                  </tbody>
+                </table>
+              </td>
+
+              <td>
+                <table class="division-table" cellspacing="0" cellpadding="0">
+                  <th class="division-header" colspan="3">Metropolitan</th>
+                  <tbody>
+                    <tr class="table-labels">
+                      <td>Team</td>
+                      <td>Record</td>
+                      <td>PTS</td>
+                    </tr>
+                    <% for (var i = 0; i < metro.length; i++) { %>
+                    <tr class="standings-teams">
+                      <td class="standings-logo">
+                        <img src="<%= metro[i].logo %>" alt="<%= metro[i].team %>">
+                      </td>
+                      <td class="standings-record">(<%= metro[i].w %>-<%= metro[i].l %>-<%= metro[i].otl %>)</td>
+                      <td class="standings-points"><%= metro[i].pts %></td>
+                    </tr>
+                    <% } %>
+                  </tbody>
+                </table>
+              </td>
+
+            </tr>
+            <tr class="conference-header-row">
+              <td class="conference-header" colspan="2">
+                <img class="west-logo" src="https://seeklogo.com/images/N/nhl-western-conference-logo-EAB4240C89-seeklogo.com.png" alt="West">
+              </td>
+            </tr>
+            <tr class="west-row">
+              <td>
+                <table class="division-table" cellspacing="0" cellpadding="0">
+                  <th class="division-header" colspan="3">Central</th>
+                  <tbody>
+                    <tr class="table-labels">
+                      <td>Team</td>
+                      <td>Record</td>
+                      <td>PTS</td>
+                    </tr>
+                    <% for (var i = 0; i < central.length; i++) { %>
+                    <tr class="standings-teams">
+                      <td class="standings-logo">
+                        <img src="<%= central[i].logo %>" alt="<%= central[i].team %>">
+                      </td>
+                      <td class="standings-record">(<%= central[i].w %>-<%= central[i].l %>-<%= central[i].otl %>)</td>
+                      <td class="standings-points"><%= central[i].pts %></td>
+                    </tr>
+                    <% } %>
+                  </tbody>
+                </table>
+              </td>
+
+              <td>
+                <table class="division-table" cellspacing="0" cellpadding="0">
+                  <th class="division-header" colspan="3">Pacific</th>
+                  <tbody>
+                    <tr class="table-labels">
+                      <td>Team</td>
+                      <td>Record</td>
+                      <td>PTS</td>
+                    </tr>
+                    <% for (var i = 0; i < pacific.length; i++) { %>
+                    <tr class="standings-teams">
+                      <td class="standings-logo">
+                        <img src="<%= pacific[i].logo %>" alt="<%= pacific[i].team %>">
+                      </td>
+                      <td class="standings-record">(<%= pacific[i].w %>-<%= pacific[i].l %>-<%= pacific[i].otl %>)</td>
+                      <td class="standings-points"><%= pacific[i].pts %></td>
+                    </tr>
+                    <% } %>
+                  </tbody>
+                </table>
+              </td>
+
+            </tr>
+
+
+          </tbody>
+        </table>
+      </tr>
+
+    </tbody>
+  </table>
+</body>
