@@ -1,13 +1,3 @@
-// const puppeteer = require('puppeteer')
-
-
-// const start = async () => {
-//     const browser = await puppeteer.launch()
-//     let articles = await getArticles(browser)
-//     console.log(articles)
-//     await browser.close()
-// }
-
 const sleep = (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms))
 }
@@ -17,7 +7,6 @@ const getArticles = async (browser) => {
     await page.goto(`https://www.espn.com/nhl/`)
     await sleep(3000)
     let article = []
-    // get text
     const images = await page.evaluate(() => {
         return Array.from(document.querySelectorAll(".media-wrapper_image img")).map(x => x.src)
     })
@@ -51,5 +40,4 @@ const getArticles = async (browser) => {
     return article
 }
 
-// start()
 exports.getArticles = getArticles

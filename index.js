@@ -15,18 +15,9 @@ app.set("port", port)
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
-app.set("port", port)
-app.use(express.json())
-app.use(express.urlencoded({extended:true}))
-
 let subscribers = ['maxcodestuff@gmail.com','nhlnewsletter@gmail.com']
 
 server.listen(port, () => {
-
-    console.log("Listening on port: " + port);
-
-
-    // cron.schedule('* * 10 * * *', async () => {
 
     cron.schedule('* * 10 * * *', async () => {
         const browser = await puppeteer.launch()
@@ -41,15 +32,6 @@ server.listen(port, () => {
         let fantasy_leaders = await sportsData.getYesterdayFantasy(browser)
         let top_article = await articles.getArticles(browser)
         
-        // let nhl_games_today = []
-        // let nhl_games_yesterday = []
-        // let standings = []
-        // let atlantic = []
-        // let metro = []
-        // let central = []
-        // let pacific = []
-        // let fantasy_leaders = []
-        // let top_article = [{title: '',image: '',summary: "",author: '',timestamp: ''}]
         await browser.close()
 
         const d = new Date()

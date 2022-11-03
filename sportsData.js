@@ -1,12 +1,4 @@
-// const puppeteer = require('puppeteer')
 
-
-// const start = async () => {
-//     const browser = await puppeteer.launch()
-//     let yester = await getYesterday(browser)
-//     console.log(yester)
-//     await browser.close()
-// }
 const getGames = async (browser) => {
     const page = await browser.newPage()
     await page.goto(`https://www.espn.com/nhl/scoreboard`)
@@ -33,14 +25,12 @@ const getGames = async (browser) => {
     const logos = await page.evaluate(() => {
         return Array.from(document.querySelectorAll(".ScoreboardScoreCell__Logo")).map(x => x.src)
     })
-    // push the info to the games array
     const records = await page.evaluate(() => {
         return Array.from(document.querySelectorAll(".ScoreboardScoreCell__Record")).map(x => x.textContent)
     })
 
     let odds = await getOdds(browser)
     let teams_w_odds = []
-    // odds.push({team_odds:teams[i], pl_pm:pl_pms[i], pl_odd:pl_odds[i], ou:OUs[i], ou_odds:OU_odds[i], ml:moneylines[i]})
     for(let i=0; i<teams.length; i++){
         for(let j=0; j<odds.length; j++){
             if(teams[i] === odds[j].team){
@@ -49,7 +39,6 @@ const getGames = async (browser) => {
             }
         }
     }
-    // console.log(teams_w_odds)
 
     for (let i = 0; i<times.length; i++){
         if (i === 0){
@@ -58,7 +47,6 @@ const getGames = async (browser) => {
             games.push({time:times[i], network:networks[i], team1:teams_w_odds[i*2], team2:teams_w_odds[(i*2)+1], team1_logo:logos[i*2], team2_logo:logos[(i*2)+1], team1_record:records[i*2], team2_record:records[(i*2)+1]})
         }
     }
-    // console.log(games)
     return games
 }
 
@@ -93,9 +81,6 @@ const getOdds = async (browser) => {
         }
     }
 
-    // console.log(pl_pms)
-    // console.log(OUs)
-
     const odds_all = await page.evaluate(() => {
         return Array.from(document.querySelectorAll(".sportsbook-odds")).map(x => x.textContent)
     })
@@ -118,9 +103,6 @@ const getOdds = async (browser) => {
     for (let i = 0; i<teams.length; i++){
         odds.push({team:teams[i], pl_pm:pl_pms[i], pl_odd:pl_odds[i], ou:OUs[i], ou_odds:OU_odds[i], ml:moneylines[i]})
     }
-
-    // console.log(pl_odds)
-    // console.log(odds)
 
     return odds
 }
@@ -345,13 +327,8 @@ const getYesterdayFantasy = async (browser) => {
             blk:blocks[i]
         })
     }
-
-    // console.log(leaders)
-
     return leaders
 }
-
-// start()
 
 exports.getGames = getGames
 exports.getOdds = getOdds
