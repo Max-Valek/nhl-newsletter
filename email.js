@@ -4,8 +4,8 @@ const ejs = require('ejs');
 const transport = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'nhlnewsletter@gmail.com',
-    pass: 'eeiagwypxxrrtipp'
+    user: user,
+    pass: pass
   }
 });
 
@@ -16,7 +16,7 @@ const sendEmail = (receiver, subject, date, nhl_games_today, nhl_games_yesterday
         console.log(err);
         } else {
         var mailOptions = {
-            from: 'nhlnewsletter@gmail.com',
+            from: from,
             to: receiver,
             subject: subject,
             html: data
