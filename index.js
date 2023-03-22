@@ -15,7 +15,7 @@ app.set("port", port)
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
-let subscribers = ['maxcodestuff@gmail.com','nhlnewsletter@gmail.com']
+let subscribers = ['']
 
 server.listen(port, () => {
 
